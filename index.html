@@ -17,6 +17,7 @@
         >
         	<a-assets>
 		        <img id="map" src="images/map.jpg" crossorigin="anonymous" />
+		        <img id="map2" src="images/map_2.jpg" crossorigin="anonymous" />
 			<img id="logo" src="images/logo.jpg" crossorigin="anonymous" />
 		</a-assets>
 	        <a-sphere
@@ -36,16 +37,16 @@
 		<a-plane
 			width="5" height="5"
 			position="0 0 -3"
-		        material = "src: #map;"
+		        material = "src: #map2;"
 			rotation="-90 0 0"
 		></a-plane>
 		  <a-box
          width="30" height="30" depth="30"
          position="0 1 -300"
-	 material = "src: #map;"
+	 material = "src: #map2;"
          rotation="0 45 0"
   ></a-box>
-		<a-image src="#logo" opacity="0.5" rotation="0 0 0" scale="3.2 1.32 1" position="-5 10 -30"></a-image>
+		<a-image src="#map2" opacity="0.5" rotation="0 0 0" scale="3.2 1.32 1" position="-5 10 -30"></a-image>
             <a-camera gps-new-camera="simulateLatitude:35; simulateLongitude:135; gpsTimeInterval:36000;" rotation-reader ></a-camera>
         </a-scene>
     </body>
