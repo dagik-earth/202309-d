@@ -17,13 +17,13 @@
         >
         	<a-assets>
 		        <img id="map" src="images/map.jpg" crossorigin="anonymous" />
-		        <img id="map2" src="images/map_2.jpg" crossorigin="anonymous" />
+		        <img id="map2" src="images/map_2.png" crossorigin="anonymous" />
 			<img id="logo" src="images/logo.jpg" crossorigin="anonymous" />
 		</a-assets>
 	        <a-sphere
 		        radius = "40."
 		        position = "0 0. -500"
-		        material = "src: #map;"
+		        material = "src: #map2;"
 			gps-entity-place="latitude: 35.; longitude: 135.;"
 		animation = "
 				property :rotation;
@@ -37,13 +37,13 @@
 		<a-plane
 			width="5" height="5"
 			position="0 0 -3"
-		        material = "src: #map2;"
+		        material = "src: #map;"
 			rotation="-90 0 0"
 		></a-plane>
 		  <a-box
          width="30" height="30" depth="30"
          position="0 1 -300"
-	 material = "src: #map2;"
+	 material = "src: #map;"
          rotation="0 45 0"
   ></a-box>
 		<a-image src="#map2" opacity="0.5" rotation="0 0 0" scale="3.2 1.32 1" position="-5 10 -30"></a-image>
