@@ -33,9 +33,15 @@
 		        radius = "2."
 		        position = "0 2. -5"
 		        material = "src: #map;"
-	        	animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
-        		scale-on-mouseente
-			"
+	        	animation = "
+				property :rotation;
+				dur : 30000;
+				from : 0 0 0;
+				to : 0 180 0;
+				loop : 1;
+				easing : linear;
+			"        		
+			scale-on-mouseenter
 	        >
 		</a-sphere>
 	</a-scene>
