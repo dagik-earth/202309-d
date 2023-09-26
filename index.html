@@ -30,18 +30,16 @@
 			<img id="mission" src="images/MISSION2.png" crossorigin="anonymous" />
 		</a-assets>
 	        <a-sphere
-		        radius = "80."
-		        position = "0 0. -500"
+		        radius = "2."
+		        position = "0 2. -5"
 		        material = "src: #map;"
 			gps-entity-place="latitude: 35.; longitude: 135.;"
          		animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
         		scale-on-mouseente
 			"
-	        ></a-sphere>
-  <!-- ... -->
-  <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2"
-         animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
-         scale-on-mouseenter></a-box>
+	        >
+		            <a-camera gps-new-camera="simulateLatitude:35; simulateLongitude:135; gpsTimeInterval:36000;" rotation-reader ></a-camera>
+		</a-sphere>
   <!-- ... -->
 </a-scene>
     </body>
