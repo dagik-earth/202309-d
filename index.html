@@ -6,55 +6,29 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-	<script>
-		var st = 0;
-		AFRAME.registerComponent('anime-control', { 
-		init: function () {
-		this.el.addEventListener('click', function (evt) {
-		if (st==0) { this.emit("start") st = 1;
-		} else if(st==1) { this.emit("pause") st = 2;
-		} else { this.emit("resume") st = 1;
-		} });
-		} });
-	</script>
     </head>
     <body style="margin: 0; overflow: hidden;">
+<script>
+  AFRAME.registerComponent('scale-on-mouseenter', {
+    schema: {
+      to: {default: '2.5 2.5 2.5', type: 'vec3'}
+    },
 
-        <a-scene
-            embedded
-            loading-screen="enabled: false;"
-            arjs="sourceType: webcam; debugUIEnabled: false;"
-		vr-mode-ui='enabled: false' 
-        >
-        	<a-assets>
-		        <img id="map" src="images/map.jpg" crossorigin="anonymous" />
-			<img id="logo" src="images/256x128.png" crossorigin="anonymous" />
-		</a-assets>
-	        <a-sphere
-		        radius = "40."
-		        position = "0 0. -500"
-		        material = "src: #map;"
-			gps-entity-place="latitude: 35.; longitude: 135.;"
-			anime-control
-		animation = "
-				property :rotation;
-				dur : 100000;
-				from : 0 0 0;
-				to : 0 360 0;
-				loop : -1;
-				easing : linear;
-				startEvents: start;
-				pauseEvents: pause;
-				resumeEvents: resume;
-				"
-	        ></a-sphere>
-		<a-image src="#logo" opacity="0.5" rotation="0 0 0" scale="3. 1. 1" position="-5 10 -30"></a-image>
-            <a-camera gps-new-camera="simulateLatitude:35; simulateLongitude:135; gpsTimeInterval:36000;" rotation-reader >
-		    <a-cursor scale="5 5 5"
-			color="blue"
-			position="0 0 -2" geometry="primitive: ring">
-			</a-cursor>
-	    </a-camera>
-        </a-scene>
+    init: function () {
+      var data = this.data;
+      var el = this.el;
+      this.el.addEventListener('mouseenter', function () {
+        el.object3D.scale.copy(data.to);
+      });
+    }
+  });
+</script>
+<a-scene>
+  <!-- ... -->
+  <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2"
+         animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
+         scale-on-mouseenter></a-box>
+  <!-- ... -->
+</a-scene>
     </body>
 </html>
